@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 25 Sty 2022, 11:48
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 8.0.11
+-- Czas generowania: 18 Maj 2022, 19:05
+-- Wersja serwera: 10.4.22-MariaDB
+-- Wersja PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,17 +30,27 @@ SET time_zone = "+00:00";
 CREATE TABLE `cars` (
   `id` int(11) NOT NULL,
   `marka` varchar(50) COLLATE utf8_polish_ci NOT NULL,
-  `model` varchar(50) COLLATE utf8_polish_ci NOT NULL
+  `model` varchar(50) COLLATE utf8_polish_ci NOT NULL,
+  `moc` varchar(5) COLLATE utf8_polish_ci NOT NULL,
+  `wyposazenie` varchar(15) COLLATE utf8_polish_ci NOT NULL,
+  `spalanie` varchar(5) COLLATE utf8_polish_ci NOT NULL,
+  `cena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `cars`
 --
 
-INSERT INTO `cars` (`id`, `marka`, `model`) VALUES
-(1, 'Mercedes', 'AMG'),
-(2, 'Ford', 'Mustang'),
-(3, 'Porsche', 'Panamera');
+INSERT INTO `cars` (`id`, `marka`, `model`, `moc`, `wyposazenie`, `spalanie`, `cena`) VALUES
+(1, 'Mercedes', 'AMG', '500', 'Komfort', '10', 200),
+(2, 'Ford', 'Mustang', '800', 'Sport', '18', 180),
+(3, 'Porsche', 'Panamera', '420', 'Komfort', '8', 150),
+(4, 'Mercedes', 'SKL', '715', 'Sport', '11', 200),
+(5, 'Ferrari', 'T700', '666', 'Sport', '9', 220),
+(6, 'Lamborgini', 'Elipse', '350', 'Komfort+', '7', 140),
+(7, 'Porshe', 'Magnuma', '500', 'Universal', '5', 100),
+(8, 'BMW', 'i8', '550', 'Sport', '11', 160),
+(9, 'Maserati', 'Pionier', '390', 'Komfort', '6', 110);
 
 -- --------------------------------------------------------
 
@@ -60,8 +70,9 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `id_users`, `id_cars`, `state`) VALUES
-(27, 1, 1, 1),
-(28, 2, 1, 1);
+(55, 2, 4, 1),
+(56, 2, 2, 1),
+(57, 2, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +117,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `surname`, `mail`, `login`, `pass`, `id_role`) VALUES
 (1, 'Imię admin', 'Nazwisko admin', 'admin@as.pl', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1),
 (2, 'imię moder', 'nazwisko moder', 'moder@as.pl', 'moder', 'b36c04f4f2496b9525646ec01ff51e2007e79a2c', 2),
-(3, 'imię user', 'nazwisko user', 'user@as.pl', 'user', '12dea96fec20593566ab75692c9949596833adc9', 3);
+(3, 'imię user', 'nazwisko user', 'user@as.pl', 'user', '12dea96fec20593566ab75692c9949596833adc9', 3),
+(7, 'Talldil', 'rtyrty', 'miechowskip@outlook.com', 'wefwf', '86c16a459ecf39fd76a8e750f9d5074c4722f22b', 3);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -147,19 +159,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT dla tabeli `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ograniczenia dla zrzutów tabel
