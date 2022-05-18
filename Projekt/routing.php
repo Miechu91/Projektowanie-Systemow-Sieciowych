@@ -7,6 +7,7 @@ App::getRouter()->setDefaultRoute('start'); // akcja/ścieżka domyślna
 App::getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
 
 Utils::addRoute('start',    'StartCtrl');
+Utils::addRoute('startpart',    'StartCtrl');
 Utils::addRoute('reservation',    'StartCtrl',	[1, 2, 3]);
 Utils::addRoute('registration',    'RegistrationCtrl');
 Utils::addRoute('adduser',    'RegistrationCtrl');

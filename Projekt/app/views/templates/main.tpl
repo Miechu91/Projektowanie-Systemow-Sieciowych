@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="{$conf->app_url}/css/pure-min.css">
 	<link rel="stylesheet" href="{$conf->app_url}/css/grids-responsive-min.css">
 	<link rel="stylesheet" href="{$conf->app_url}/css/styles.css">
+	<script type="text/javascript" src="{$conf->app_url}/js/functions.js"></script>
 </head>
 <body>
 
